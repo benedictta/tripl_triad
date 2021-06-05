@@ -1,0 +1,201 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/game_results.png" type="Texture" id=1]
+[ext_resource path="res://fonts/ChiKareGo2.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/icon-pack.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/GameResult/EndMenu.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1022.53, 190.622 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 392.948, 1038.42, 193.171 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 201.074, 1019.39, 188.941 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 828.438, -5.5144, 198.698, 120.777 )
+
+[node name="Result" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.552941, 0.615686, 0.686275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EndMenu" type="VBoxContainer" parent="Container"]
+margin_left = 172.0
+margin_top = 118.0
+margin_right = 1194.0
+margin_bottom = 650.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinTexture" type="TextureRect" parent="Container/EndMenu"]
+margin_right = 1022.0
+margin_bottom = 190.0
+texture = SubResource( 1 )
+
+[node name="DrawTexture" type="TextureRect" parent="Container/EndMenu"]
+visible = false
+margin_top = 194.0
+margin_right = 1038.0
+margin_bottom = 387.0
+texture = SubResource( 2 )
+
+[node name="LoseTexture" type="TextureRect" parent="Container/EndMenu"]
+visible = false
+margin_top = 391.0
+margin_right = 1038.0
+margin_bottom = 579.0
+texture = SubResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/EndMenu"]
+margin_top = 194.0
+margin_right = 1022.0
+margin_bottom = 438.0
+custom_constants/margin_top = 20
+custom_constants/margin_left = 270
+custom_constants/margin_bottom = 20
+
+[node name="Stat" type="VBoxContainer" parent="Container/EndMenu/MarginContainer"]
+margin_left = 270.0
+margin_top = 20.0
+margin_right = 1022.0
+margin_bottom = 224.0
+
+[node name="Matches" type="HBoxContainer" parent="Container/EndMenu/MarginContainer/Stat"]
+margin_right = 752.0
+margin_bottom = 48.0
+custom_constants/separation = 156
+
+[node name="Label" type="Label" parent="Container/EndMenu/MarginContainer/Stat/Matches"]
+margin_right = 189.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "Matches:"
+
+[node name="Value" type="Label" parent="Container/EndMenu/MarginContainer/Stat/Matches"]
+margin_left = 345.0
+margin_right = 458.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "Value"
+
+[node name="MatchesWon" type="HBoxContainer" parent="Container/EndMenu/MarginContainer/Stat"]
+margin_top = 52.0
+margin_right = 752.0
+margin_bottom = 100.0
+custom_constants/separation = 244
+
+[node name="Label" type="Label" parent="Container/EndMenu/MarginContainer/Stat/MatchesWon"]
+margin_right = 101.0
+margin_bottom = 48.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 4 )
+text = "Won:"
+
+[node name="Value" type="Label" parent="Container/EndMenu/MarginContainer/Stat/MatchesWon"]
+margin_left = 345.0
+margin_right = 458.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "Value"
+
+[node name="MatchesDraw" type="HBoxContainer" parent="Container/EndMenu/MarginContainer/Stat"]
+margin_top = 104.0
+margin_right = 752.0
+margin_bottom = 152.0
+custom_constants/separation = 220
+
+[node name="Label" type="Label" parent="Container/EndMenu/MarginContainer/Stat/MatchesDraw"]
+margin_right = 123.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "Draw:"
+
+[node name="Value" type="Label" parent="Container/EndMenu/MarginContainer/Stat/MatchesDraw"]
+margin_left = 343.0
+margin_right = 456.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "Value"
+
+[node name="MatchesLost" type="HBoxContainer" parent="Container/EndMenu/MarginContainer/Stat"]
+margin_top = 156.0
+margin_right = 752.0
+margin_bottom = 204.0
+custom_constants/separation = 243
+
+[node name="Label" type="Label" parent="Container/EndMenu/MarginContainer/Stat/MatchesLost"]
+margin_right = 101.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "Lost:"
+
+[node name="Value" type="Label" parent="Container/EndMenu/MarginContainer/Stat/MatchesLost"]
+margin_left = 344.0
+margin_right = 457.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "Value"
+
+[node name="EndMenu" type="VBoxContainer" parent="Container/EndMenu"]
+margin_top = 442.0
+margin_right = 1022.0
+margin_bottom = 532.0
+
+[node name="PlayAgain" type="Label" parent="Container/EndMenu/EndMenu"]
+margin_right = 1022.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 5 )
+text = "Play Again"
+align = 1
+
+[node name="ToMenu" type="Label" parent="Container/EndMenu/EndMenu"]
+margin_top = 47.0
+margin_right = 1022.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 5 )
+text = "Back To Menu"
+align = 1
+
+[node name="EndPointer" type="Sprite" parent="Container/EndMenu"]
+position = Vector2( 260.236, 463.018 )
+scale = Vector2( 0.226855, 0.201668 )
+texture = SubResource( 6 )

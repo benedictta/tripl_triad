@@ -1,0 +1,182 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/cards_13.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Obj/card.gd" type="Script" id=2]
+[ext_resource path="res://assets/card-element.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Obj/Attributes.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 195, 387, 184, 184 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.410256, 0.788462 )
+colors = PoolColorArray( 0.458824, 0.560784, 0.733333, 1, 0.948899, 0.963223, 0.987225, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 0.780392, 0.431373, 0.431373, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 6, 6, 32, 32 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "capture"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0, 360.0 ]
+}
+
+[node name="card" type="TextureButton"]
+anchor_right = 0.0292826
+anchor_bottom = 0.0520833
+margin_right = 220.0
+margin_bottom = 215.0
+rect_rotation = 360.0
+rect_pivot_offset = Vector2( 130, 127.5 )
+size_flags_horizontal = 3
+texture_normal = SubResource( 1 )
+expand = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+OwnedbyPlayer = false
+card_id = 106
+
+[node name="PlayerTexture" type="TextureRect" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyTexture" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attributes" type="GridContainer" parent="."]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 101.0
+margin_bottom = 101.0
+columns = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Container" parent="Attributes"]
+margin_right = 27.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Top" type="TextureRect" parent="Attributes"]
+margin_left = 31.0
+margin_right = 58.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 6 )
+expand = true
+
+[node name="Container2" type="Container" parent="Attributes"]
+margin_left = 62.0
+margin_right = 89.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Left" type="TextureRect" parent="Attributes"]
+margin_top = 31.0
+margin_right = 27.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 6 )
+expand = true
+
+[node name="Container3" type="Container" parent="Attributes"]
+margin_left = 31.0
+margin_top = 31.0
+margin_right = 58.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Right" type="TextureRect" parent="Attributes"]
+margin_left = 62.0
+margin_top = 31.0
+margin_right = 89.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 6 )
+expand = true
+
+[node name="Container4" type="Container" parent="Attributes"]
+margin_top = 62.0
+margin_right = 27.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Bottom" type="TextureRect" parent="Attributes"]
+margin_left = 31.0
+margin_top = 62.0
+margin_right = 58.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 6 )
+expand = true
+
+[node name="Container5" type="Container" parent="Attributes"]
+margin_left = 62.0
+margin_top = 62.0
+margin_right = 89.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="captured" type="AnimationPlayer" parent="."]
+anims/capture = SubResource( 7 )

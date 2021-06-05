@@ -1,0 +1,359 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/board_big.jpg" type="Texture" id=1]
+[ext_resource path="res://Scenes/Game/GamePlay.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Obj/card.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Game/Container.gd" type="Script" id=4]
+[ext_resource path="res://assets/icon-pack.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Game/Player1Card.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Game/Player2Card.gd" type="Script" id=7]
+[ext_resource path="res://assets/card-element.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Game/Player2Score.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Game/Player1Score.gd" type="Script" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Load"
+length = 2.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Container0:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Container1:rect_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 0.6, 0.9, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Container2:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1, 1.1, 1.4, 1.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Container3:rect_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.5, 1.6, 1.9, 2 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Container4:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2, 2.1, 2.4, 2.5 )
+}
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 641.519, 2, 187, 110 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 833.083, 6, 190, 109 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 190, 100, 100 )
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 190, 100, 100 )
+
+[node name="GamePlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Board" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_right = 1366.0
+margin_bottom = 768.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Field" type="GridContainer" parent="."]
+margin_left = 342.0
+margin_top = 45.0
+margin_right = 1024.0
+margin_bottom = 723.0
+size_flags_vertical = 0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container0" type="Control" parent="Field"]
+margin_right = 224.0
+margin_bottom = 223.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Container1" type="Control" parent="Field"]
+margin_left = 228.0
+margin_right = 452.0
+margin_bottom = 223.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Container2" type="Control" parent="Field"]
+margin_left = 456.0
+margin_right = 680.0
+margin_bottom = 223.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Container3" type="Control" parent="Field"]
+margin_top = 227.0
+margin_right = 224.0
+margin_bottom = 450.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Container4" type="Control" parent="Field"]
+margin_left = 228.0
+margin_top = 227.0
+margin_right = 452.0
+margin_bottom = 450.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Container5" type="Control" parent="Field"]
+margin_left = 456.0
+margin_top = 227.0
+margin_right = 680.0
+margin_bottom = 450.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Container6" type="Control" parent="Field"]
+margin_top = 454.0
+margin_right = 224.0
+margin_bottom = 677.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Container7" type="Control" parent="Field"]
+margin_left = 228.0
+margin_top = 454.0
+margin_right = 452.0
+margin_bottom = 677.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Container8" type="Control" parent="Field"]
+margin_left = 456.0
+margin_top = 454.0
+margin_right = 680.0
+margin_bottom = 677.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Player1Card" type="VBoxContainer" parent="."]
+margin_left = 40.0
+margin_top = 20.0
+margin_right = 260.0
+margin_bottom = 748.0
+custom_constants/separation = -110
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container0" type="Control" parent="Player1Card"]
+margin_right = 220.0
+margin_bottom = 233.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card" parent="Player1Card/Container0" instance=ExtResource( 3 )]
+OwnedbyPlayer = true
+
+[node name="Container1" type="Control" parent="Player1Card"]
+margin_top = 123.0
+margin_right = 220.0
+margin_bottom = 357.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player1Card/Container1" instance=ExtResource( 3 )]
+OwnedbyPlayer = true
+
+[node name="Container2" type="Control" parent="Player1Card"]
+margin_top = 247.0
+margin_right = 220.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player1Card/Container2" instance=ExtResource( 3 )]
+OwnedbyPlayer = true
+
+[node name="Container3" type="Control" parent="Player1Card"]
+margin_top = 370.0
+margin_right = 220.0
+margin_bottom = 604.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player1Card/Container3" instance=ExtResource( 3 )]
+OwnedbyPlayer = true
+
+[node name="Container4" type="Control" parent="Player1Card"]
+margin_top = 494.0
+margin_right = 220.0
+margin_bottom = 728.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player1Card/Container4" instance=ExtResource( 3 )]
+OwnedbyPlayer = true
+
+[node name="Player2Card" type="VBoxContainer" parent="."]
+margin_left = 1106.0
+margin_top = 30.0
+margin_right = 1326.0
+margin_bottom = 748.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = -110
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container0" type="Control" parent="Player2Card"]
+margin_right = 220.0
+margin_bottom = 231.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player2Card/Container0" instance=ExtResource( 3 )]
+
+[node name="Container1" type="Control" parent="Player2Card"]
+margin_top = 121.0
+margin_right = 220.0
+margin_bottom = 353.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player2Card/Container1" instance=ExtResource( 3 )]
+
+[node name="Container2" type="Control" parent="Player2Card"]
+margin_top = 243.0
+margin_right = 220.0
+margin_bottom = 474.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player2Card/Container2" instance=ExtResource( 3 )]
+
+[node name="Container3" type="Control" parent="Player2Card"]
+margin_top = 364.0
+margin_right = 220.0
+margin_bottom = 596.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player2Card/Container3" instance=ExtResource( 3 )]
+
+[node name="Container4" type="Control" parent="Player2Card"]
+margin_top = 486.0
+margin_right = 220.0
+margin_bottom = 718.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="card" parent="Player2Card/Container4" instance=ExtResource( 3 )]
+
+[node name="ChoosingAnim" type="AnimationPlayer" parent="Player2Card"]
+playback_speed = 1.25
+anims/Load = SubResource( 1 )
+
+[node name="GamePointer" type="Sprite" parent="."]
+position = Vector2( 365.391, 119.195 )
+scale = Vector2( 0.399753, 0.418361 )
+texture = SubResource( 2 )
+
+[node name="FieldPointer" type="Sprite" parent="."]
+visible = false
+position = Vector2( 624.916, 394.615 )
+scale = Vector2( 0.433501, 0.375114 )
+texture = SubResource( 3 )
+
+[node name="PlayerScores" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 638.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Player1Score" type="TextureRect" parent="PlayerScores"]
+margin_left = 80.0
+margin_top = 5.0
+margin_right = 188.0
+margin_bottom = 113.0
+texture = SubResource( 4 )
+expand = true
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2Score" type="TextureRect" parent="PlayerScores"]
+margin_left = 1158.0
+margin_top = 5.0
+margin_right = 1266.0
+margin_bottom = 113.0
+texture = SubResource( 5 )
+expand = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="animation_finished" from="Player2Card/ChoosingAnim" to="." method="after_anim"]

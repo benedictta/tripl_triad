@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/screen_logo-removebg-preview.png" type="Texture" id=1]
+[ext_resource path="res://assets/icon-pack.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Menu/pointer.gd" type="Script" id=3]
+[ext_resource path="res://fonts/ChiKareGo2.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/Menu/MenuList.gd" type="Script" id=5]
+[ext_resource path="res://assets/squall.png" type="Texture" id=8]
+[ext_resource path="res://assets/rinoa.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+font_data = ExtResource( 4 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 834, 1, 190, 110 )
+
+[node name="MenuScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.99658
+margin_top = 0.199341
+margin_right = 2.99658
+margin_bottom = 0.199341
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.52549, 0.588235, 0.843137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="ColorRect"]
+margin_left = 300.0
+margin_top = 40.0
+margin_right = 1166.0
+margin_bottom = 728.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="ColorRect/Menu"]
+margin_right = 866.0
+margin_bottom = 225.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="CenterRow" type="HBoxContainer" parent="ColorRect/Menu"]
+margin_top = 229.0
+margin_right = 866.0
+margin_bottom = 688.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MenuList" type="VBoxContainer" parent="ColorRect/Menu/CenterRow"]
+margin_right = 313.0
+margin_bottom = 459.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+alignment = 1
+script = ExtResource( 5 )
+
+[node name="MenuStart" type="Label" parent="ColorRect/Menu/CenterRow/MenuList"]
+margin_top = 97.0
+margin_right = 313.0
+margin_bottom = 182.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Start"
+
+[node name="MenuOption" type="Label" parent="ColorRect/Menu/CenterRow/MenuList"]
+margin_top = 187.0
+margin_right = 313.0
+margin_bottom = 272.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Option"
+
+[node name="MenuExit" type="Label" parent="ColorRect/Menu/CenterRow/MenuList"]
+margin_top = 277.0
+margin_right = 313.0
+margin_bottom = 362.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Exit"
+
+[node name="pointer" type="Sprite" parent="ColorRect/Menu/CenterRow/MenuList"]
+position = Vector2( -59.7083, 136.583 )
+scale = Vector2( 0.365236, 0.316693 )
+texture = SubResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Pic Container" type="HBoxContainer" parent="ColorRect/Menu/CenterRow"]
+margin_left = 317.0
+margin_right = 866.0
+margin_bottom = 459.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.75
+custom_constants/separation = -263
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Menu/CenterRow/Pic Container"]
+margin_right = 406.0
+margin_bottom = 459.0
+size_flags_horizontal = 3
+texture = ExtResource( 9 )
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/Menu/CenterRow/Pic Container"]
+margin_left = 143.0
+margin_right = 549.0
+margin_bottom = 459.0
+size_flags_horizontal = 3
+texture = ExtResource( 8 )
+stretch_mode = 4

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sound-invalid.ogg-9cd1d7a8191ae10ca9001e9e73a98c19.oggstr"
+
+[deps]
+
+source_file="res://audio/sound-invalid.ogg"
+dest_files=[ "res://.import/sound-invalid.ogg-9cd1d7a8191ae10ca9001e9e73a98c19.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
